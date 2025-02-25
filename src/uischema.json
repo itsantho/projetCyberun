@@ -1,54 +1,121 @@
 {
-  "type": "VerticalLayout",
+  "type": "Categorization",
   "elements": [
     {
-      "type": "Control",
-      "label": "Completed",
-      "scope": "#/properties/done"
-    },
-    {
-      "type": "Control",
-      "scope": "#/properties/name"
-    },
-    {
-      "type": "HorizontalLayout",
+      "type": "Category",
+      "label": "categoryLabelKey",
       "elements": [
         {
-          "type": "Control",
-          "scope": "#/properties/due_date"
+          "type": "HorizontalLayout",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/firstName"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/secondName"
+            }
+          ]
+        },
+        {
+          "type": "HorizontalLayout",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/birthDate"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/nationality"
+            }
+          ]
         },
         {
           "type": "Control",
-          "scope": "#/properties/rating"
+          "scope": "#/properties/provideAddress"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/vegetarian"
         }
       ]
     },
     {
-      "type": "HorizontalLayout",
+      "type": "Category",
+      "i18n": "address",
+      "elements": [
+        {
+          "type": "HorizontalLayout",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/address/properties/street"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/address/properties/streetNumber"
+            }
+          ]
+        },
+        {
+          "type": "HorizontalLayout",
+          "elements": [
+            {
+              "type": "Control",
+              "scope": "#/properties/address/properties/city"
+            },
+            {
+              "type": "Control",
+              "scope": "#/properties/address/properties/postalCode"
+            }
+          ]
+        }
+      ],
+      "rule": {
+        "effect": "SHOW",
+        "condition": {
+          "scope": "#/properties/provideAddress",
+          "schema": {
+            "const": true
+          }
+        }
+      }
+    },
+    {
+      "type": "Category",
+      "label": "Additional",
       "elements": [
         {
           "type": "Control",
-          "scope": "#/properties/recurrence"
+          "scope": "#/properties/vegetarianOptions/properties/vegan"
         },
         {
           "type": "Control",
-          "scope": "#/properties/recurrence_interval",
+          "scope": "#/properties/vegetarianOptions/properties/favoriteVegetable"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/vegetarianOptions/properties/otherFavoriteVegetable",
           "rule": {
-            "effect": "HIDE",
+            "effect": "SHOW",
             "condition": {
-              "type": "LEAF",
-              "scope": "#/properties/recurrence",
-              "expectedValue": "Never"
+              "scope": "#/properties/vegetarianOptions/properties/favoriteVegetable",
+              "schema": {
+                "const": "Other"
+              }
             }
           }
         }
-      ]
-    },
-    {
-      "type": "Control",
-      "scope": "#/properties/description",
-      "options": {
-        "multi": true
+      ],
+      "rule": {
+        "effect": "SHOW",
+        "condition": {
+          "scope": "#/properties/vegetarian",
+          "schema": {
+            "const": true
+          }
+        }
       }
     }
   ]
