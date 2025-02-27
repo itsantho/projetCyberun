@@ -3,7 +3,7 @@
   "elements": [
     {
       "type": "Category",
-      "label": "Identity",
+      "label": "Identity2",
       "elements": [
         {
           "type": "HorizontalLayout",
@@ -77,42 +77,6 @@
         "effect": "SHOW",
         "condition": {
           "scope": "#/properties/provideAddress",
-          "schema": {
-            "const": true
-          }
-        }
-      }
-    },
-    {
-      "type": "Category",
-      "label": "Additional",
-      "elements": [
-        {
-          "type": "Control",
-          "scope": "#/properties/vegetarianOptions/properties/vegan"
-        },
-        {
-          "type": "Control",
-          "scope": "#/properties/vegetarianOptions/properties/favoriteVegetable"
-        },
-        {
-          "type": "Control",
-          "scope": "#/properties/vegetarianOptions/properties/otherFavoriteVegetable",
-          "rule": {
-            "effect": "SHOW",
-            "condition": {
-              "scope": "#/properties/vegetarianOptions/properties/favoriteVegetable",
-              "schema": {
-                "const": "Other"
-              }
-            }
-          }
-        }
-      ],
-      "rule": {
-        "effect": "SHOW",
-        "condition": {
-          "scope": "#/properties/vegetarian",
           "schema": {
             "const": true
           }
