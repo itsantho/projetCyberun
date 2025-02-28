@@ -1,53 +1,27 @@
 {
   "type": "object",
   "properties": {
-    "firstName": {
+    "jobTitle": {
       "type": "string",
       "minLength": 3,
-      "description": "Please enter your first name"
+      "description": "Please enter your job title"
     },
-    "secondName": {
+    "company": {
       "type": "string",
       "minLength": 3,
-      "description": "Please enter your second name"
+      "description": "Please enter your company name"
     },
-
-    "birthDate": {
-      "type": "string",
-      "format": "date",
-      "description": "Please enter your birth date."
+    "workExperience": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Years of experience in your field"
     },
-    "nationality": {
-      "type": "string",
-      "enum": [
-        "DE",
-        "IT",
-        "JP",
-        "US",
-        "RU",
-        "Other"
-      ]
-    },
-    "provideAddress": {
-      "type": "boolean"
-    },
-    "address": {
-      "type": "object",
-      "properties": {
-        "street": {
-          "type": "string"
-        },
-        "streetNumber": {
-          "type": "string"
-        },
-        "city": {
-          "type": "string"
-        },
-        "postalCode": {
-          "type": "string",
-          "maxLength": 5
-        }
-      }
+    "skills": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List your skills"
     }
   }
 }

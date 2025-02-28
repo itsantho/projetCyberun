@@ -3,85 +3,36 @@
   "elements": [
     {
       "type": "Category",
-      "label": "Identity2",
+      "label": "Job Details",
       "elements": [
         {
           "type": "HorizontalLayout",
           "elements": [
             {
               "type": "Control",
-              "scope": "#/properties/firstName"
+              "scope": "#/properties/jobTitle"
             },
             {
               "type": "Control",
-              "scope": "#/properties/secondName"
-            }
-          ]
-        },
-        {
-          "type": "HorizontalLayout",
-          "elements": [
-            {
-              "type": "Control",
-              "scope": "#/properties/birthDate"
-            },
-            {
-              "type": "Control",
-              "scope": "#/properties/nationality"
+              "scope": "#/properties/company"
             }
           ]
         },
         {
           "type": "Control",
-          "scope": "#/properties/provideAddress"
-        },
-        {
-          "type": "Control",
-          "scope": "#/properties/vegetarian"
+          "scope": "#/properties/workExperience"
         }
       ]
     },
     {
       "type": "Category",
-      "label": "Adress",
-      "i18n": "address",
+      "label": "Skills",
       "elements": [
         {
-          "type": "HorizontalLayout",
-          "elements": [
-            {
-              "type": "Control",
-              "scope": "#/properties/address/properties/street"
-            },
-            {
-              "type": "Control",
-              "scope": "#/properties/address/properties/streetNumber"
-            }
-          ]
-        },
-        {
-          "type": "HorizontalLayout",
-          "elements": [
-            {
-              "type": "Control",
-              "scope": "#/properties/address/properties/city"
-            },
-            {
-              "type": "Control",
-              "scope": "#/properties/address/properties/postalCode"
-            }
-          ]
+          "type": "Control",
+          "scope": "#/properties/skills"
         }
-      ],
-      "rule": {
-        "effect": "SHOW",
-        "condition": {
-          "scope": "#/properties/provideAddress",
-          "schema": {
-            "const": true
-          }
-        }
-      }
+      ]
     }
   ]
 }
