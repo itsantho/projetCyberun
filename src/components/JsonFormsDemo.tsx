@@ -23,17 +23,6 @@ const classes = {
     textAlign: 'center',
     padding: '0.25em',
   },
-  dataContent: {
-    display: 'flex',
-    justifyContent: 'center',
-    borderRadius: '0.25em',
-    backgroundColor: '#cecece',
-    marginBottom: '1rem',
-  },
-  resetButton: {
-    margin: 'auto !important',
-    display: 'block !important',
-  },
   demoform: {
     margin: 'auto',
     padding: '1rem',
@@ -48,23 +37,21 @@ const initialData = {
 
 export const JsonFormsDemo: FC = () => {
   const [data, setData] = useState<object>(initialData);
-
-
   const [open, setOpen] = useState(false);
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
   const [activeSet, setActiveSet] = useState<"set1"| "set2" | null>(null);
 
-  const categories_1 = uischema.elements.map((category: any) => ({
+  const categories_1 = uischema.elements.map((category) => ({
     label: category.label,
     key: category.label,
     elements: category.elements,
   }));
-  const categories_2 = uischema2.elements.map((category: any) => ({
+  const categories_2 = uischema2.elements.map((category) => ({
     label: category.label,
     key: category.label,
     elements: category.elements,
   }));
-  // Trouver la catégorie active
+
 
   const activeUISchema = activeSet === "set1"
     ? categories_1.find((cat) => cat.key === activeCategory)
@@ -81,17 +68,15 @@ export const JsonFormsDemo: FC = () => {
     setOpen(false);
   };
 
-
   return (
       <Grid item sm={6}>
-
-        <Typography variant={'h1'}>Challenge Cyberun</Typography>
+        <Typography>Challenge Cyberun</Typography>
         <div style={classes.demoform}>
           <Button type="primary" onClick={showDrawer}>
             Open drawer
           </Button>
           <Drawer title="Basic Drawer" onClose={onClose} open={open} placement={'left'}>
-            <Typography variant={'h2'}>Set 1 - Personal data</Typography>
+            <Typography>Set 1 - Personal data</Typography>
             <Menu
               mode="inline"
               onClick={(e) => {
@@ -102,7 +87,7 @@ export const JsonFormsDemo: FC = () => {
               selectedKeys={activeCategory ? [activeCategory] : []}
               items={categories_1.map((cat) => ({ key: cat.key, label: cat.label }))}
             />
-            <Typography variant={'h2'}>Set 2 - Professional data</Typography>
+            <Typography>Set 2 - Professional data</Typography>
             <Menu
               mode="inline"
               onClick={(e) => {
